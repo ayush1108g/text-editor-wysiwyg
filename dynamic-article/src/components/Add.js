@@ -1,5 +1,5 @@
 import React from "react";
-import MySunEditor from "./../Editor";
+import MySunEditor from "../Editor";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -11,7 +11,8 @@ const Add = () => {
 
   const changeHandler = (content) => {
     const dhtml = content;
-    const pdata = JSON.stringify(dhtml);
+    // const pdata = JSON.stringify(dhtml);
+    const pdata = dhtml;
     console.log("pdata", pdata);
     setData(pdata);
     console.log("data", data);

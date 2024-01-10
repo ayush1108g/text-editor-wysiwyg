@@ -14,7 +14,7 @@ function Routing() {
 
   return (
     <div style={{ width: "100%" }}>
-      <Routes>
+      <Routes key={location.key}>
         <Route path="/" element={<Home />} />
         <Route path="/add" element={<Add />} />
         <Route path="/edit/:id" element={<EditPost />} />

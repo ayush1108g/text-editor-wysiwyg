@@ -18,7 +18,6 @@ const Home = () => {
         return item;
       });
       setList(newdata);
-      console.log(newdata[2].data);
     } catch (err) {
       console.log(err);
     }
@@ -30,6 +29,7 @@ const Home = () => {
   return (
     <>
       <div
+        key="1"
         style={{
           display: "flex",
           flexDirection: "column",
@@ -57,10 +57,11 @@ const Home = () => {
               index: {index}
             </div>
             <div
-              key={item.id}
+              key={item._id}
               style={{ boxShadow: "2px 2px 2px #000", marginBottom: "50px" }}
             >
               <button
+                key={item._id + "1mq"}
                 style={{
                   backgroundColor: "blue",
                   color: "white",

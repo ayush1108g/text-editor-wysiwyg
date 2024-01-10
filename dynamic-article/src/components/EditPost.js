@@ -29,7 +29,8 @@ const EditPost = () => {
 
   const changeHandler = (content) => {
     const dhtml = content;
-    const pdata = JSON.stringify(dhtml);
+    // const pdata = JSON.stringify(dhtml);
+    const pdata = dhtml;
     console.log("pdata", pdata);
     setData(pdata);
     console.log("data", data);
@@ -38,10 +39,20 @@ const EditPost = () => {
 
   const SubmitHandler = async () => {
     console.log("data", data);
+    // const ndata = JSON.stringify(data);
     try {
-      const res = await axios.put(`${ToLink}/api/updatePost/${id}`, {
-        data,
+      const res = await axios.patch(`${ToLink}/api/updatePost/${id}`, {
+        data: data,
       });
+      console.log(res);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const deleteHandler = async () => {
+    try {
+      const res = await axios.delete(`${ToLink}/api/deletePost/${id}`);
       console.log(res);
       navigate("/");
     } catch (err) {
@@ -57,6 +68,7 @@ const EditPost = () => {
         )}
         <button onClick={SubmitHandler}>Submit </button>
       </div>
+      <button onClick={deleteHandler}>Delete This Post </button>
     </div>
   );
 };
